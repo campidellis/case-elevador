@@ -8,7 +8,23 @@ Implementação da classe `Elevador` em PHP/Laravel utilizando estrutura de dado
 - Composer 2.x
 - Laravel 12.0+
 
+**OU**
+
+- Docker e Docker Compose
+
 ## Instalação
+
+### Opção 1: Docker (Recomendado)
+
+```bash
+git clone <URL_DO_REPOSITORIO>
+cd elevador
+docker compose up
+```
+
+A aplicação será executada automaticamente dentro do container.
+
+### Opção 2: Instalação Local
 
 ```bash
 git clone <URL_DO_REPOSITORIO>
@@ -19,6 +35,14 @@ php artisan key:generate
 ```
 
 ## Como executar
+
+### Com Docker
+
+```bash
+docker compose up
+```
+
+### Localmente
 
 ```bash
 php artisan elevador:demonstrar
