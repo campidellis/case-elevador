@@ -58,6 +58,8 @@ app/
 bootstrap/
   app.php                                      ← Inicialização do Laravel
   providers.php                                ← Carregamento dos providers
+tests/
+  Unit/ElevadorTest.php                        ← Testes unitários (PHPUnit)
 ```
 
 ## Classe Elevador
@@ -113,3 +115,22 @@ A `SplQueue` implementa o comportamento FIFO:
 - `isEmpty()` => verifica se a fila está vazia
 
 As chamadas são processadas na ordem exata de chegada (primeiro a entrar, primeiro a sair).
+
+## Testes
+
+Os testes unitários cobrem todos os métodos da classe `Elevador` utilizando **PHPUnit 11**.
+
+```bash
+vendor/bin/phpunit
+```
+
+Cenários testados:
+
+- Elevador inicia no andar 0 com fila vazia
+- `chamar()` adiciona corretamente à fila
+- `chamar()` com andar negativo lança `InvalidArgumentException`
+- Andar 0 (térreo) é aceito como válido
+- `mover()` processa a fila em ordem FIFO
+- `mover()` reduz a fila em 1 a cada chamada
+- `mover()` com fila vazia não lança exceção e mantém o andar atual
+- `getChamadosPendentes()` retorna clone sem afetar a fila original.
